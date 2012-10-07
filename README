@@ -1,0 +1,62 @@
+2012/10/07 written by tharada
+
+steady-state Genetic Algorithm (steady-state GA)を用いたOne-Max問題の解法
+
+One-Max問題（One-Max problem）とは遺伝子の要素で1の個数が多いほど評価値が高くなる問題。
+最良解は遺伝子の全要素が1である個体。
+
+▼ macros
+	CHROM_LEN
+		- 遺伝子超
+	CROSSOVER_RATE
+		- 交叉率
+	MAX_GENERATION
+		- 最大世代数
+	MUTATION_RATE
+		- 突然変異率
+	POP_SIZE
+		- 個体数
+
+▼ typedefs
+	Individual
+
+▼ _Individual : struct
+	[members]
+	+Chromsome
+		- 遺伝子、0/1のビット列
+	+Fitness
+		- 適合度
+
+▼ variables
+	Children
+		- 子個体生成用
+	Population
+		- 母集団
+
+▼ functions
+	GA(void)
+		- GAの実行サイクル
+	calc_fit_all(void)
+		- 母集団内の全個体の適合度を計算
+	calc_fitness(int pop_i)
+		- Population配列内のpop_i番目の個体の適合度を計算
+	crossover(void)
+		- 交叉
+	generate_children(void)
+		- 子個体生成
+	init_chrom(void)
+		- 母集団生成
+	main(int argc, char **argv)
+		- メイン関数
+	mutation(void)
+		- 突然変異
+	print_all(void)
+		- 母集団内の全個体の表示
+	print_chrom(int pop_i)
+		- Population配列内のpop_i番目の個体を表示
+	select_chrom(void)
+		- トーナメント選択
+	sort_population(void)
+		- 母集団を適合度でソーティング
+	swap_population(void)
+		- 生成した子個体を入れ替え
